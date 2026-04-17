@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReportUsernameRouteImport } from './routes/report.$username'
+import { Route as AnalyzingUsernameRouteImport } from './routes/analyzing.$username'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportUsernameRoute = ReportUsernameRouteImport.update({
+  id: '/report/$username',
+  path: '/report/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyzingUsernameRoute = AnalyzingUsernameRouteImport.update({
+  id: '/analyzing/$username',
+  path: '/analyzing/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analyzing/$username': typeof AnalyzingUsernameRoute
+  '/report/$username': typeof ReportUsernameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analyzing/$username': typeof AnalyzingUsernameRoute
+  '/report/$username': typeof ReportUsernameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analyzing/$username': typeof AnalyzingUsernameRoute
+  '/report/$username': typeof ReportUsernameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/analyzing/$username' | '/report/$username'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/analyzing/$username' | '/report/$username'
+  id: '__root__' | '/' | '/analyzing/$username' | '/report/$username'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyzingUsernameRoute: typeof AnalyzingUsernameRoute
+  ReportUsernameRoute: typeof ReportUsernameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,21 +68,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/report/$username': {
+      id: '/report/$username'
+      path: '/report/$username'
+      fullPath: '/report/$username'
+      preLoaderRoute: typeof ReportUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analyzing/$username': {
+      id: '/analyzing/$username'
+      path: '/analyzing/$username'
+      fullPath: '/analyzing/$username'
+      preLoaderRoute: typeof AnalyzingUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyzingUsernameRoute: AnalyzingUsernameRoute,
+  ReportUsernameRoute: ReportUsernameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
