@@ -167,9 +167,9 @@ function initReport(){
   document.getElementById("r-following").textContent=fmtNum(d.following);
 
   document.getElementById("k-newfollows").textContent=fmtNum(d.newFollows);
-  document.getElementById("k-newfollows-d").textContent="+"+d.newFollows+" săptămâna asta";
+  document.getElementById("k-newfollows-d").textContent="+"+d.newFollows+" this week";
   document.getElementById("k-newfollowers").textContent=fmtNum(d.newFollowers);
-  document.getElementById("k-newfollowers-d").textContent="+"+d.growth+"% creștere";
+  document.getElementById("k-newfollowers-d").textContent="+"+d.growth+"% growth";
   document.getElementById("k-views").textContent=fmtNum(d.profileViews);
   document.getElementById("k-likes").textContent=fmtNum(d.recentLikes);
 
