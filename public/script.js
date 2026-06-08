@@ -88,8 +88,8 @@ function initLanding(){
       const input=document.getElementById("search-input");
       const err=document.getElementById("search-error");
       const v=input.value.trim();
-      if(!v){err.textContent="Introdu un nume de utilizator.";return;}
-      if(v.length<2){err.textContent="Numele este prea scurt.";return;}
+      if(!v){err.textContent="Enter a username.";return;}
+      if(v.length<2){err.textContent="Username is too short.";return;}
       err.textContent="";
       goAnalyze(v);
     });
@@ -122,11 +122,11 @@ function initAnalyzing(){
   const pct=document.getElementById("progress-pct");
   const status=document.getElementById("a-status");
   const messages=[
-    "Conectare la profil…",
-    "Scanare urmăritori recenți…",
-    "Analiză vizualizări de profil…",
-    "Procesare like-uri și activitate…",
-    "Compilare raport detaliat…"
+    "Connecting to profile…",
+    "Scanning recent followers…",
+    "Analyzing profile views…",
+    "Processing likes and activity…",
+    "Compiling detailed report…"
   ];
   let i=0;
   const total=steps.length;
@@ -142,7 +142,7 @@ function initAnalyzing(){
       setTimeout(tick,900+Math.random()*500);
     }else{
       steps[total-1].classList.replace("active","done");
-      status.textContent="Raport finalizat — redirecționare…";
+      status.textContent="Report ready — redirecting…";
       setTimeout(()=>{location.href="report.html?u="+encodeURIComponent(username);},500);
     }
   }
@@ -167,16 +167,16 @@ function initReport(){
   document.getElementById("r-following").textContent=fmtNum(d.following);
 
   document.getElementById("k-newfollows").textContent=fmtNum(d.newFollows);
-  document.getElementById("k-newfollows-d").textContent="+"+d.newFollows+" săptămâna asta";
+  document.getElementById("k-newfollows-d").textContent="+"+d.newFollows+" this week";
   document.getElementById("k-newfollowers").textContent=fmtNum(d.newFollowers);
-  document.getElementById("k-newfollowers-d").textContent="+"+d.growth+"% creștere";
+  document.getElementById("k-newfollowers-d").textContent="+"+d.growth+"% growth";
   document.getElementById("k-views").textContent=fmtNum(d.profileViews);
   document.getElementById("k-likes").textContent=fmtNum(d.recentLikes);
 
-  renderActivity("list-follows",d.recentFollows,"a urmărit");
-  renderActivity("list-followers",d.recentFollowers,"l-a urmărit");
-  renderActivity("list-viewers",d.profileViewers,"a vizualizat profilul");
-  renderActivity("list-likers",d.recentLikers,"a dat like");
+  renderActivity("list-follows",d.recentFollows,"followed");
+  renderActivity("list-followers",d.recentFollowers,"started following");
+  renderActivity("list-viewers",d.profileViewers,"viewed the profile");
+  renderActivity("list-likers",d.recentLikers,"liked");
 
   // Gender bars
   setBar("g-female",d.genderBreakdown.female,"#e91e63");

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Raport — The Ick</title>
+<title>Report — The Ick</title>
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +19,7 @@
         <span class="logo-mark">😏</span>
         <span class="font-display" style="font-size:18px">The Ick<span class="logo-tld">.io</span></span>
       </a>
-      <a class="btn-dark" href="index.html" style="padding:8px 16px;font-size:12px">Caută alt profil</a>
+      <a class="btn-dark" href="index.html" style="padding:8px 16px;font-size:12px">Search another profile</a>
     </div>
   </header>
 
@@ -29,17 +29,17 @@
       <div class="report-info">
         <h1>
           <span id="r-handle">@username</span>
-          <span class="badge-verified">Date verificate</span>
+          <span class="badge-verified">Verified data</span>
         </h1>
         <div class="display-name" id="r-display">—</div>
         <div class="bio" id="r-bio">—</div>
         <div class="report-stats">
-          <div class="report-stat"><div class="v" id="r-posts">0</div><div class="l">Postări</div></div>
-          <div class="report-stat"><div class="v" id="r-followers">0</div><div class="l">Urmăritori</div></div>
-          <div class="report-stat"><div class="v" id="r-following">0</div><div class="l">Urmărește</div></div>
+          <div class="report-stat"><div class="v" id="r-posts">0</div><div class="l">Posts</div></div>
+          <div class="report-stat"><div class="v" id="r-followers">0</div><div class="l">Followers</div></div>
+          <div class="report-stat"><div class="v" id="r-following">0</div><div class="l">Following</div></div>
         </div>
       </div>
-      <div class="report-anon">🔒 Anonim</div>
+      <div class="report-anon">🔒 Anonymous</div>
     </div>
   </section>
 
@@ -49,40 +49,40 @@
       <div class="kpi-card">
         <div class="kpi-icon pink">＋</div>
         <div class="kpi-value" id="k-newfollows">0</div>
-        <div class="kpi-label">Urmăriri noi (7z)</div>
+        <div class="kpi-label">New follows (7d)</div>
         <div class="kpi-delta" id="k-newfollows-d">—</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-icon green">👥</div>
         <div class="kpi-value" id="k-newfollowers">0</div>
-        <div class="kpi-label">Urmăritori noi (7z)</div>
+        <div class="kpi-label">New followers (7d)</div>
         <div class="kpi-delta" id="k-newfollowers-d">—</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-icon violet">👁</div>
         <div class="kpi-value" id="k-views">0</div>
-        <div class="kpi-label">Vizualizări profil</div>
-        <div class="kpi-delta">ultimele 7 zile</div>
+        <div class="kpi-label">Profile views</div>
+        <div class="kpi-delta">last 7 days</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-icon pink">♥</div>
         <div class="kpi-value" id="k-likes">0</div>
-        <div class="kpi-label">Like-uri date</div>
-        <div class="kpi-delta">ultimele 24 ore</div>
+        <div class="kpi-label">Likes given</div>
+        <div class="kpi-delta">last 24 hours</div>
       </div>
     </div>
 
     <div class="two-col">
       <div class="card">
         <div class="card-head">
-          <div><h3>A urmărit recent</h3><div class="sub">Conturile pe care a început să le urmărească</div></div>
+          <div><h3>Recently followed</h3><div class="sub">Accounts they started following</div></div>
           <div class="icon">＋</div>
         </div>
         <ul id="list-follows" class="activity-list"></ul>
       </div>
       <div class="card">
         <div class="card-head">
-          <div><h3>Urmăritori noi</h3><div class="sub">Cine a început să-l urmărească</div></div>
+          <div><h3>New followers</h3><div class="sub">Who started following them</div></div>
           <div class="icon">👥</div>
         </div>
         <ul id="list-followers" class="activity-list"></ul>
@@ -92,14 +92,14 @@
     <div class="two-col">
       <div class="card">
         <div class="card-head">
-          <div><h3>Vizualizări profil</h3><div class="sub">Conturi care i-au vizualizat profilul</div></div>
+          <div><h3>Profile viewers</h3><div class="sub">Accounts that viewed their profile</div></div>
           <div class="icon">👁</div>
         </div>
         <ul id="list-viewers" class="activity-list"></ul>
       </div>
       <div class="card">
         <div class="card-head">
-          <div><h3>A dat like recent</h3><div class="sub">Postări pe care le-a apreciat</div></div>
+          <div><h3>Recently liked</h3><div class="sub">Posts they liked</div></div>
           <div class="icon">♥</div>
         </div>
         <ul id="list-likers" class="activity-list"></ul>
@@ -108,32 +108,32 @@
 
     <div class="three-col">
       <div class="card">
-        <div class="card-head"><div><h3>Audiență — gen</h3><div class="sub">Estimare</div></div><div class="icon">✨</div></div>
+        <div class="card-head"><div><h3>Audience — gender</h3><div class="sub">Estimate</div></div><div class="icon">✨</div></div>
         <div style="margin-top:12px">
-          <div class="bar-row"><div class="lbl"><span>Femei</span><span id="g-female-v">0%</span></div><div class="bar-track"><div id="g-female" class="bar-fill"></div></div></div>
-          <div class="bar-row"><div class="lbl"><span>Bărbați</span><span id="g-male-v">0%</span></div><div class="bar-track"><div id="g-male" class="bar-fill"></div></div></div>
-          <div class="bar-row"><div class="lbl"><span>Altele</span><span id="g-other-v">0%</span></div><div class="bar-track"><div id="g-other" class="bar-fill"></div></div></div>
+          <div class="bar-row"><div class="lbl"><span>Women</span><span id="g-female-v">0%</span></div><div class="bar-track"><div id="g-female" class="bar-fill"></div></div></div>
+          <div class="bar-row"><div class="lbl"><span>Men</span><span id="g-male-v">0%</span></div><div class="bar-track"><div id="g-male" class="bar-fill"></div></div></div>
+          <div class="bar-row"><div class="lbl"><span>Other</span><span id="g-other-v">0%</span></div><div class="bar-track"><div id="g-other" class="bar-fill"></div></div></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-head"><div><h3>Engagement</h3><div class="sub">Ultimele 30 zile</div></div><div class="icon">📈</div></div>
+        <div class="card-head"><div><h3>Engagement</h3><div class="sub">Last 30 days</div></div><div class="icon">📈</div></div>
         <div style="margin-top:12px">
           <div class="engagement-big"><span id="eng-val">0%</span><span class="delta" id="eng-delta">+0%</span></div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px">rată medie engagement</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">average engagement rate</div>
           <div id="hourly" class="hourly"></div>
           <div class="hourly-axis"><span>00h</span><span>12h</span><span>23h</span></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-head"><div><h3>Top locații</h3><div class="sub">De unde e audiența</div></div><div class="icon">📍</div></div>
+        <div class="card-head"><div><h3>Top locations</h3><div class="sub">Where the audience is from</div></div><div class="icon">📍</div></div>
         <div id="locations" style="margin-top:12px"></div>
       </div>
     </div>
 
     <div class="disclaimer">
-      🔒 Raport generat anonim · criptat AES-256 · <b id="disclaimer-handle">@username</b> nu a fost notificat
+      🔒 Report generated anonymously · AES-256 encrypted · <b id="disclaimer-handle">@username</b> was not notified
     </div>
 
   </main>
