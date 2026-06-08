@@ -142,7 +142,7 @@ function initAnalyzing(){
       setTimeout(tick,900+Math.random()*500);
     }else{
       steps[total-1].classList.replace("active","done");
-      status.textContent="Raport finalizat — redirecționare…";
+      status.textContent="Report ready — redirecting…";
       setTimeout(()=>{location.href="report.html?u="+encodeURIComponent(username);},500);
     }
   }
