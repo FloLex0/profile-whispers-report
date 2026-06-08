@@ -88,8 +88,8 @@ function initLanding(){
       const input=document.getElementById("search-input");
       const err=document.getElementById("search-error");
       const v=input.value.trim();
-      if(!v){err.textContent="Introdu un nume de utilizator.";return;}
-      if(v.length<2){err.textContent="Numele este prea scurt.";return;}
+      if(!v){err.textContent="Enter a username.";return;}
+      if(v.length<2){err.textContent="Username is too short.";return;}
       err.textContent="";
       goAnalyze(v);
     });
