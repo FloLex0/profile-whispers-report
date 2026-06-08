@@ -173,10 +173,10 @@ function initReport(){
   document.getElementById("k-views").textContent=fmtNum(d.profileViews);
   document.getElementById("k-likes").textContent=fmtNum(d.recentLikes);
 
-  renderActivity("list-follows",d.recentFollows,"a urmărit");
-  renderActivity("list-followers",d.recentFollowers,"l-a urmărit");
-  renderActivity("list-viewers",d.profileViewers,"a vizualizat profilul");
-  renderActivity("list-likers",d.recentLikers,"a dat like");
+  renderActivity("list-follows",d.recentFollows,"followed");
+  renderActivity("list-followers",d.recentFollowers,"started following");
+  renderActivity("list-viewers",d.profileViewers,"viewed the profile");
+  renderActivity("list-likers",d.recentLikers,"liked");
 
   // Gender bars
   setBar("g-female",d.genderBreakdown.female,"#e91e63");
