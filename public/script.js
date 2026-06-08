@@ -122,11 +122,11 @@ function initAnalyzing(){
   const pct=document.getElementById("progress-pct");
   const status=document.getElementById("a-status");
   const messages=[
-    "Conectare la profil…",
-    "Scanare urmăritori recenți…",
-    "Analiză vizualizări de profil…",
-    "Procesare like-uri și activitate…",
-    "Compilare raport detaliat…"
+    "Connecting to profile…",
+    "Scanning recent followers…",
+    "Analyzing profile views…",
+    "Processing likes and activity…",
+    "Compiling detailed report…"
   ];
   let i=0;
   const total=steps.length;
